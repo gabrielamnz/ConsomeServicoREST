@@ -15,7 +15,7 @@ namespace ConsomeServicoREST.Controllers
 
         public NotesController()
         {
-            client.BaseAddress = new Uri("http://teste");
+            client.BaseAddress = new Uri("http://localhost:3000");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -24,7 +24,7 @@ namespace ConsomeServicoREST.Controllers
         public ActionResult Index()
         {
             List<Note> notes = new List<Note>();
-            HttpResponseMessage response = client.GetAsync("/api/notes").Result;
+            HttpResponseMessage response = client.GetAsync("/notes").Result;
             if (response.IsSuccessStatusCode)
             {
                 notes = response.Content.ReadAsAsync<List<Note>>().Result;
@@ -35,6 +35,16 @@ namespace ConsomeServicoREST.Controllers
         // GET: Notes/Details/5
         public ActionResult Details(int id)
         {
+            HttpResponseMessage response = client.GetAsync($"/notes/{id}").Result;
+            Note note = response.Content.ReadAsAsync<Note>().Result;
+            if (note != null)
+            {
+                return View(note);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 
@@ -46,14 +56,22 @@ namespace ConsomeServicoREST.Controllers
 
         // POST: Notes/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Note note)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                HttpResponseMessage response = client.PostAsJsonAsync<Note>("/notes", note).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Error = "Erro !!!";
+                    return View();
+                }
             }
+
             catch
             {
                 return View();
@@ -63,18 +81,31 @@ namespace ConsomeServicoREST.Controllers
         // GET: Notes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            HttpResponseMessage response = client.GetAsync($"/notes/{id}").Result;
+            Note note = response.Content.ReadAsAsync<Note>().Result;
+            if (note != null)
+            {
+                return View(note);
+            }
+            else
+                return HttpNotFound();
         }
 
         // POST: Notes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Note note)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                HttpResponseMessage response = client.PutAsJsonAsync<Note>($"/notes/{id}",note).Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                    return RedirectToAction("Index");
+                else
+                {
+                    ViewBag.Error = "Erro!!";
+                    return View();
+                }
             }
             catch
             {

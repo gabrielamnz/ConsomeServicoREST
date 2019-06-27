@@ -71,7 +71,6 @@ C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeSer
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\bin\Newtonsoft.Json.xml
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\bin\Antlr3.Runtime.pdb
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.csprojAssemblyReference.cache
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.csproj.CoreCompileInputs.cache
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.csproj.CopyComplete
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.dll
