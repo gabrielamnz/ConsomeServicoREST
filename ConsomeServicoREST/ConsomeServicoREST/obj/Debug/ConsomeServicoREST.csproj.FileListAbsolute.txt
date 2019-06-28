@@ -75,3 +75,4 @@ C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeSer
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.csproj.CopyComplete
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.dll
 C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.pdb
+C:\Users\gmnzf\Documents\GitHub\ConsomeServicoREST\ConsomeServicoREST\ConsomeServicoREST\obj\Debug\ConsomeServicoREST.csprojAssemblyReference.cache

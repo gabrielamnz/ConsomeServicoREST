@@ -116,18 +116,28 @@ namespace ConsomeServicoREST.Controllers
         // GET: Notes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            HttpResponseMessage response = client.GetAsync($"/Notes/{id}").Result;
+            Note note = response.Content.ReadAsAsync<Note>().Result;
+
+            if (note != null)
+                return View(note);
+            else
+                return HttpNotFound();                        
         }
 
         // POST: Notes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Note note)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                HttpResponseMessage response = client.DeleteAsync($"/Notes/{id}").Result;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    return RedirectToAction("Index");
+                else
+                    return View();
             }
             catch
             {
