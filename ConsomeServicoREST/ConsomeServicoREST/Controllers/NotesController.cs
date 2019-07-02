@@ -16,6 +16,7 @@ namespace ConsomeServicoREST.Controllers
         public NotesController()
         {
             client.BaseAddress = new Uri("http://localhost:3000");
+            //client.BaseAddress = new Uri("http://localhost:56647");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -25,6 +26,7 @@ namespace ConsomeServicoREST.Controllers
         {
             List<Note> notes = new List<Note>();
             HttpResponseMessage response = client.GetAsync("/notes").Result;
+            //HttpResponseMessage response = client.GetAsync("/api/notes").Result;
             if (response.IsSuccessStatusCode)
             {
                 notes = response.Content.ReadAsAsync<List<Note>>().Result;
